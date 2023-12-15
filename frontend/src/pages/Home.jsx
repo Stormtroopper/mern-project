@@ -25,6 +25,11 @@ function Home() {
     }, []);
     return (
         <div className='p-5'>
+            <div className='flex justify-center items-center gap-x-4'>
+                <button className='bg-sky-300 hover:bg-sky-500 px-4 py-1 rounded-lg'>
+
+                </button>
+            </div>
             <div className='flex justify-between items-center'>
                 <h1 className='text-2xl my-6'>Books List</h1>
                 <Link to='/books/create'>
@@ -67,7 +72,7 @@ function Home() {
                                         <Link to={`/books/edit/${books._id}`}  >
                                             <AiOutlineEdit className='text-2xl text-blue-600' />
                                         </Link>
-                                        <Link to={`/books/details/${books._id}`}  >
+                                        <Link to={`/books/delete/${books._id}`}  >
                                             <MdOutlineDelete className='text-2xl text-red-600' />
                                         </Link>
                                     </div>
