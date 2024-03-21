@@ -1,0 +1,68 @@
+query firstattempt {
+  users {
+    _id
+    email
+  }
+  books {
+    title
+    by
+  }
+}
+# query second attempt
+ {
+   users{
+     _id
+     email
+   },
+   books {
+     title
+     author
+   }
+ }
+ # query third attempt
+{
+  users{
+    email
+    books{
+      title
+      by
+    }
+  }
+}
+ # query fourth attempt
+query getUserbyId{
+  user(_id:"23")
+  {
+  	books{
+      title
+    }
+    email
+    lastName
+  }
+}
+#query fifth attempt
+query getuserby_id($userid:ID!){
+user(_id:$userid){
+  __id
+  firstName
+  email
+}
+}
+#query sixth attempt
+mutation createUser($newUser:UserInput!) {
+ signup:usersignin(newUser:$newUser){
+    _id
+    email
+    lastName
+    firstName
+  }
+}
+#query seventh attempt
+ mutation signInUser($newUser:UserSignIn!) {
+  signup: usersignin(newUser:$newUser){
+     _id
+     email
+     lastName
+     firstName
+   }
+ }

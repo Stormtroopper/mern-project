@@ -1,0 +1,39 @@
+version: "3"
+services:
+  client:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend/src:/app/src
+    stdin_open: true
+    tty: true 
+    depends_on:
+      - server
+    networks:
+      - mern-network
+  server:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    volumes:
+      - .backend:/app - /app/node_modules
+    restart: always
+    depends_on:
+      - database
+    networks:
+      - mern-network
+  database:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - data:/data/db
+    networks:
+      - mern-network
+networks:
+  mern-network:
+    driver: bridge
+volumes:
+  data:
+  logs:

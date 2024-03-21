@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  book_store:
+    build: ./book_store
+    container_name: book_container
+    ports:
+      - "5174:5174"
+    stdin_open: true
+    tty: true
