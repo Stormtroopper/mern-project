@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+
+model Product {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt   DateTime @default(now())
+  description String
+  name        String
+  price       Int
+  /// Multiple data types found: Float: 96.7%, Int: 3.3% out of 30 sampled entries
+  imageUrl    String
+  updatedAt   DateTime @updatedAt
+  @@map("ecommerce-products")
+}
+
+
